@@ -108,8 +108,8 @@ These instructions will help you set up the project on your local machine for de
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone git@github.com:belmirzahirovic/Company-Website.git
+   cd Company-Website
    ```
 
 2. Install dependencies for both frontend and backend:
