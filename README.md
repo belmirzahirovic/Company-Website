@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# Company Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a modern, React-based company portfolio website with a Node.js backend. It showcases company services, completed projects, and provides a contact form for potential clients. The site includes an admin panel for managing project content.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Public Pages
 
-### `npm start`
+1. **Modern, Responsive Design**
+   - Sleek, minimalist aesthetic
+   - Fully responsive layout for optimal viewing on all devices
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Services Showcase**
+   - Detailed presentation of company services
+   - Interactive service cards with flip animation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Project Portfolio**
+   - Grid layout displaying completed projects
+   - Each project card shows:
+     - Project title
+     - Brief description
+     - Location
+     - Client name
+     - Completion date
+     - Project size
+   - Image gallery for each project
+   - Lightbox feature for full-screen image viewing
 
-### `npm test`
+4. **Contact Form**
+   - Direct communication channel for potential clients
+   - Form submissions sent to a dedicated company email
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. **Smooth Scrolling Navigation**
+   - Easy navigation between different sections of the website
 
-### `npm run build`
+### Admin Panel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The admin panel provides a secure interface for managing website content, accessible only to authenticated administrators. Key features include:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Secure Authentication**
+   - JWT-based authentication system
+   - Protected routes accessible only to logged-in admin users
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Project Management**
+   - Create new projects
+   - Edit existing project details
+   - Delete projects from the portfolio
+   - Upload and manage project images
 
-### `npm run eject`
+3. **Content Editing**
+   - Add, edit, or remove project details:
+     - Title
+     - Description
+     - Location
+     - Client
+     - Completion date
+     - Project size
+   - Reorder projects in the portfolio
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Image Handling**
+   - Upload multiple images for each project
+   - Set a main image for project thumbnails
+   - Delete or replace existing project images
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **User-Friendly Interface**
+   - Intuitive dashboard for easy content management
+   - Real-time preview of changes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. **Data Validation**
+   - Form validation to ensure data integrity
+   - Error handling and success messages for admin actions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+7. **Responsive Design**
+   - Admin panel is fully responsive, allowing for content management on various devices
 
-## Learn More
+### Security Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Environment Variable Management**
+   - Sensitive information stored in `.env` file
+   - Excluded from version control for enhanced security
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Secure Password Storage**
+   - Admin passwords hashed before storage in the database
 
-### Code Splitting
+3. **CORS Configuration**
+   - Configured to accept requests only from authorized origins
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. **JWT Token Expiration**
+   - Automatically log out inactive admin users after a set period
 
-### Analyzing the Bundle Size
+## Technology Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Frontend: React, Redux
+- Backend: Node.js, Express
+- Database: MongoDB
+- Authentication: JWT
 
-### Making a Progressive Web App
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+These instructions will help you set up the project on your local machine for development and testing purposes.
 
-### Advanced Configuration
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Node.js (v14 or later)
+- MongoDB
 
-### Deployment
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
 
-### `npm run build` fails to minify
+2. Install dependencies for both frontend and backend:
+   ```
+   cd frontend
+   npm install
+   cd ../backend
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Set up environment variables:
+   - In the `backend` folder, create a `.env` file based on the `.env.example` file.
+   - Fill in your specific details (database URI, JWT secret, etc.)
+
+4. Set up the admin account:
+   - First, ensure any existing admin accounts are removed:
+     ```
+     node deleteAdmin.js
+     ```
+   - Then, create a new admin account:
+     ```
+     node createAdmin.js
+     ```
+   - After successful creation, secure or remove the `createAdmin.js` and `deleteAdmin.js` scripts to prevent unauthorized admin creation.
+
+5. Start the backend server:
+   ```
+   npm start
+   ```
+
+6. In a new terminal, start the frontend development server:
+   ```
+   cd ../frontend
+   npm start
+   ```
+
+The application should now be running on `http://localhost:3000` with the backend on `http://localhost:5001`.
+
+## Environment Variables
+
+The following environment variables need to be set in your `.env` file:
+
+- `PORT`: The port number for the backend server (default: 5001)
+- `MONGODB_URI`: Your MongoDB connection string
+- `JWT_SECRET`: A secret key for JWT token generation
+- `ADMIN_USERNAME`: Username for the admin account
+- `ADMIN_PASSWORD`: Password for the admin account
+
+Example:
+```
+PORT=5001
+MONGODB_URI=mongodb://localhost:27017/your_database_name
+JWT_SECRET=your_secret_key_here
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your_secure_password
+```
+
+## Admin Setup
+
+To set up the admin account:
+
+1. Ensure your `.env` file has `ADMIN_USERNAME` and `ADMIN_PASSWORD` set.
+2. Run `node deleteAdmin.js` to remove any existing admin accounts.
+3. Run `node createAdmin.js` to create a new admin account with the credentials from your `.env` file.
+4. After successful creation, secure or remove these scripts to prevent unauthorized admin creation.
