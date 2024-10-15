@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #26222b;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+}
+
+.navList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 35%;
+  margin: 0 auto;
+}
+
+.navItem {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.navItem:hover {
+  color: #ffc500;
+  font-weight: bold;
+}
